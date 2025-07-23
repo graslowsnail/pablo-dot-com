@@ -1,12 +1,12 @@
 import { fetchPublishedPosts, getPost, Post } from "@/lib/notion";
 import PostCard from "@/components/post-card";
 import { ProjectsCarousel } from "@/components/projects-carousel";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Github, Linkedin, Instagram, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import AsciiPortfolio from "@/components/ascii-portfolio";
 
 async function getPosts(): Promise<Post[]> {
   const posts = await fetchPublishedPosts();
@@ -52,40 +52,8 @@ export default async function Home() {
 
   return (
     <div className="space-y-12 py-4">
-            {/* Hero Section - Stepped Flow */}
-      <section className="space-y-8">
-        <div className="w-full max-w-6xl mx-auto px-4">
-          
-          {/* Step 1: Top Row - "You found" + Theme Toggle */}
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl md:text-3xl text-muted-foreground font-light">
-              You Found
-            </h2>
-            <ModeToggle />
-          </div>
-          
-          {/* Step 2: Center - Name */}
-          <div className="text-center mb-8">
-            <h3 className="text-6xl md:text-7xl font-bold tracking-tight text-foreground">
-              Pablo
-            </h3>
-          </div>
-          
-          {/* Step 3: Bottom Right - Tagline */}
-          <div className="text-right mb-12">
-            <h4 className="text-2xl md:text-3xl text-muted-foreground font-light">
-              I Build Things.
-            </h4>
-          </div>
-          
-          {/* Description - Centered */}
-          <div className="text-center">
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Brooklyn-based developer who genuinely loves building and creating things, from art to cars to code.
-            </p>
-          </div>
-        </div>
-      </section>
+            {/* ASCII Hero Section */}
+            <AsciiPortfolio />
 
       {/* Digital Footprint */}
       <section className="flex justify-center">
