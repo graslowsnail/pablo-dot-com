@@ -33,9 +33,9 @@ export default function NavigationGrid({ activeSection, onSectionChange }: Navig
               activeSection === "whoami" 
                 ? "text-green-600" 
                 : "text-black group-hover:text-green-600"
-            }`}>Who Am I</span>
+            }`}>About Me</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">learn more about me</div>
+          <div className="text-gray-500 text-xs mt-1">Who is This Guy?</div>
         </button>
 
         {/* Contact */}
@@ -55,7 +55,7 @@ export default function NavigationGrid({ activeSection, onSectionChange }: Navig
                 : "text-black group-hover:text-green-600"
             }`}>Contact Info</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">get in touch</div>
+          <div className="text-gray-500 text-xs mt-1">Don't Be Shy</div>
         </button>
 
         {/* Projects */}
@@ -75,7 +75,7 @@ export default function NavigationGrid({ activeSection, onSectionChange }: Navig
                 : "text-black group-hover:text-green-600"
             }`}>Projects</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">view my work</div>
+          <div className="text-gray-500 text-xs mt-1">View My Work</div>
         </button>
 
         {/* Blogs */}
@@ -95,7 +95,7 @@ export default function NavigationGrid({ activeSection, onSectionChange }: Navig
                 : "text-black group-hover:text-green-600"
             }`}>Blogs</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">read my thoughts</div>
+          <div className="text-gray-500 text-xs mt-1">Read My Thoughts</div>
         </button>
 
       </div>
