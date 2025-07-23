@@ -43,7 +43,7 @@ export default function Component() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center">
         {/* You Found - centered above ASCII */}
-        <div className="text-gray-400 text-xl md:text-xl mb-4">You Found</div>
+        <div className="text-gray-500 text-xl md:text-xl mb-4">You Found</div>
 
         {/* ASCII Name */}
         <div className="text-center mb-8">
@@ -55,10 +55,10 @@ export default function Component() {
         </div>
 
         {/* Tagline */}
-        <div className="text-gray-400 text-xl md:text-xl mb-8">I Build Things.</div>
+        <div className="text-gray-500 text-xl md:text-xl mb-8">I Build Things.</div>
 
         {/* Terminal-style status */}
-        <div className="text-green-600 text-md text-center">
+        <div className="text-black text-md text-center">
           <span>{typewriterText}</span>
           <span className={`ml-2 ${showCursor ? "opacity-100" : "opacity-0"}`}>█</span>
         </div>
