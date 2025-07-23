@@ -1,6 +1,7 @@
 import { fetchPublishedPosts, getPost, Post } from "@/lib/notion";
 import PostCard from "@/components/post-card";
 import { ProjectsCarousel } from "@/components/projects-carousel";
+import { ModeToggle } from "@/components/mode-toggle";
 import { Github, Linkedin, Instagram, ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -50,56 +51,76 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <div className="space-y-20">
-      {/* Hero Section */}
-      <section className="text-center space-y-6">
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-foreground">
-          Hey, I'm Pablo.
-        </h1>
-        <h2 className="text-2xl md:text-3xl text-muted-foreground font-light">
-          I build things.
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Brooklyn-based developer who loves creating — from code to cars to photos. 
-          I'm passionate about building software that makes a difference.
-        </p>
+    <div className="space-y-12 py-4">
+            {/* Hero Section - Stepped Flow */}
+      <section className="space-y-8">
+        <div className="w-full max-w-6xl mx-auto px-4">
+          
+          {/* Step 1: Top Row - "You found" + Theme Toggle */}
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl md:text-3xl text-muted-foreground font-light">
+              You Found
+            </h2>
+            <ModeToggle />
+          </div>
+          
+          {/* Step 2: Center - Name */}
+          <div className="text-center mb-8">
+            <h3 className="text-6xl md:text-7xl font-bold tracking-tight text-foreground">
+              Pablo
+            </h3>
+          </div>
+          
+          {/* Step 3: Bottom Right - Tagline */}
+          <div className="text-right mb-12">
+            <h4 className="text-2xl md:text-3xl text-muted-foreground font-light">
+              I Build Things.
+            </h4>
+          </div>
+          
+          {/* Description - Centered */}
+          <div className="text-center">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Brooklyn-based developer who genuinely loves building and creating things, from art to cars to code.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Digital Footprint */}
-      <section className="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-6">
-        <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
-          <a href="https://github.com/graslowsnail" target="_blank" rel="noopener noreferrer">
-            <Github className="w-4 h-4 mr-2 md:w-5 md:h-5" />
-            GitHub
-          </a>
-        </Button>
-        <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
-          <a href="https://www.linkedin.com/in/pablo-ramirez-5589b7260/" target="_blank" rel="noopener noreferrer">
-            <Linkedin className="w-4 h-4 mr-2 md:w-5 md:h-5" />
-            LinkedIn
-          </a>
-        </Button>
-        <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
-          <a href="https://www.instagram.com/graslowsnail/" target="_blank" rel="noopener noreferrer">
-            <Instagram className="w-4 h-4 mr-2 md:w-5 md:h-5" />
-            Photography
-          </a>
-        </Button>
-        <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
-          <a href="https://graslowsnail.com" target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="w-4 h-4 mr-2 md:w-5 md:h-5" />
-            Portfolio
-          </a>
-        </Button>
+      <section className="flex justify-center">
+        <div className="grid grid-cols-2 gap-3 md:flex md:space-x-6 md:gap-0">
+          <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
+            <a href="https://github.com/graslowsnail" target="_blank" rel="noopener noreferrer">
+              <Github className="w-4 h-4 mr-2 md:w-5 md:h-5" />
+              GitHub
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
+            <a href="https://www.linkedin.com/in/pablo-ramirez-5589b7260/" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-4 h-4 mr-2 md:w-5 md:h-5" />
+              LinkedIn
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
+            <a href="https://www.instagram.com/graslowsnail/" target="_blank" rel="noopener noreferrer">
+              <Instagram className="w-4 h-4 mr-2 md:w-5 md:h-5" />
+              Photography
+            </a>
+          </Button>
+          <Button variant="outline" size="sm" className="md:text-base md:px-6 md:py-3" asChild>
+            <a href="https://pabloar.com" target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="w-4 h-4 mr-2 md:w-5 md:h-5" />
+              Portfolio
+            </a>
+          </Button>
+        </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Projects */}
       <section className="space-y-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground">
-            A selection of things I've built and shipped
-          </p>
+          <h2 className="text-3xl font-bold text-foreground mb-4">Projects</h2>
         </div>
         
         {/* Desktop Grid */}
