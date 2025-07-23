@@ -45,7 +45,7 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <div className="space-y-12 py-4">
+    <div className="space-y-6 py-4">
       {/* ASCII Hero Section */}
       <AsciiPortfolio />
 

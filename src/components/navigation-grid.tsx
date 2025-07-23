@@ -9,93 +9,77 @@ interface NavigationGridProps {
 
 export default function NavigationGrid({ activeSection, onSectionChange }: NavigationGridProps) {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl xl:max-w-4xl 2xl:max-w-5xl mx-auto">
       {/* Terminal Header */}
-      <div className="text-gray-500 text-sm mb-4 text-center font-mono">
+      <div className="text-gray-500 text-sm xl:text-base mb-4 text-center font-mono">
         ~/navigation $ cd {activeSection}
         <span className="animate-pulse">█</span>
       </div>
 
       {/* Navigation Grid */}
-      <div className="grid grid-cols-2 gap-4 px-4">
+      <div className="grid grid-cols-2 gap-4 xl:gap-6 2xl:gap-8 px-4">
         {/* About */}
         <button 
           onClick={() => onSectionChange("whoami")}
-          className={`group p-4 text-left transition-all duration-200 rounded-lg ${
+          className={`group p-4 xl:p-6 2xl:p-8 text-left transition-all duration-200 ${
             activeSection === "whoami" 
-              ? "border-2 border-green-600 bg-green-50 shadow-lg shadow-green-200" 
-              : "border border-gray-300 hover:border-green-600 bg-white hover:bg-gray-50"
+              ? "border-2 border-black bg-white" 
+              : "border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50"
           }`}
         >
           <div className="mb-1">
-            <span className="text-green-600 text-xs font-mono">$ </span>
-            <span className={`font-mono ${
-              activeSection === "whoami" 
-                ? "text-green-600" 
-                : "text-black group-hover:text-green-600"
-            }`}>About Me</span>
+            <span className="text-black text-xs xl:text-sm font-mono">$ </span>
+            <span className="font-mono text-sm xl:text-base 2xl:text-lg text-black">About Me</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">Who is This Guy?</div>
+          <div className="text-gray-500 text-xs xl:text-sm 2xl:text-base mt-1">Who is This Guy?</div>
         </button>
 
         {/* Contact */}
         <button 
           onClick={() => onSectionChange("contact")}
-          className={`group p-4 text-left transition-all duration-200 rounded-lg ${
+          className={`group p-4 xl:p-6 2xl:p-8 text-left transition-all duration-200 ${
             activeSection === "contact" 
-              ? "border-2 border-green-600 bg-green-50 shadow-lg shadow-green-200" 
-              : "border border-gray-300 hover:border-green-600 bg-white hover:bg-gray-50"
+              ? "border-2 border-black bg-white" 
+              : "border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50"
           }`}
         >
           <div className="mb-1">
-            <span className="text-green-600 text-xs font-mono">$ </span>
-            <span className={`font-mono ${
-              activeSection === "contact" 
-                ? "text-green-600" 
-                : "text-black group-hover:text-green-600"
-            }`}>Contact Info</span>
+            <span className="text-black text-xs xl:text-sm font-mono">$ </span>
+            <span className="font-mono text-sm xl:text-base 2xl:text-lg text-black">Contact Info</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">Don't Be Shy</div>
+          <div className="text-gray-500 text-xs xl:text-sm 2xl:text-base mt-1">Don't Be Shy</div>
         </button>
 
         {/* Projects */}
         <button 
           onClick={() => onSectionChange("projects")}
-          className={`group p-4 text-left transition-all duration-200 rounded-lg ${
+          className={`group p-4 xl:p-6 2xl:p-8 text-left transition-all duration-200 ${
             activeSection === "projects" 
-              ? "border-2 border-green-600 bg-green-50 shadow-lg shadow-green-200" 
-              : "border border-gray-300 hover:border-green-600 bg-white hover:bg-gray-50"
+              ? "border-2 border-black bg-white" 
+              : "border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50"
           }`}
         >
           <div className="mb-1">
-            <span className="text-green-600 text-xs font-mono">$ </span>
-            <span className={`font-mono ${
-              activeSection === "projects" 
-                ? "text-green-600" 
-                : "text-black group-hover:text-green-600"
-            }`}>Projects</span>
+            <span className="text-black text-xs xl:text-sm font-mono">$ </span>
+            <span className="font-mono text-sm xl:text-base 2xl:text-lg text-black">Projects</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">View My Work</div>
+          <div className="text-gray-500 text-xs xl:text-sm 2xl:text-base mt-1">View My Work</div>
         </button>
 
         {/* Blogs */}
         <button 
           onClick={() => onSectionChange("blogs")}
-          className={`group p-4 text-left transition-all duration-200 rounded-lg ${
+          className={`group p-4 xl:p-6 2xl:p-8 text-left transition-all duration-200 ${
             activeSection === "blogs" 
-              ? "border-2 border-green-600 bg-green-50 shadow-lg shadow-green-200" 
-              : "border border-gray-300 hover:border-green-600 bg-white hover:bg-gray-50"
+              ? "border-2 border-black bg-white" 
+              : "border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50"
           }`}
         >
           <div className="mb-1">
-            <span className="text-green-600 text-xs font-mono">$ </span>
-            <span className={`font-mono ${
-              activeSection === "blogs" 
-                ? "text-green-600" 
-                : "text-black group-hover:text-green-600"
-            }`}>Blogs</span>
+            <span className="text-black text-xs xl:text-sm font-mono">$ </span>
+            <span className="font-mono text-sm xl:text-base 2xl:text-lg text-black">Blogs</span>
           </div>
-          <div className="text-gray-500 text-xs mt-1">Read My Thoughts</div>
+          <div className="text-gray-500 text-xs xl:text-sm 2xl:text-base mt-1">Read My Thoughts</div>
         </button>
 
       </div>

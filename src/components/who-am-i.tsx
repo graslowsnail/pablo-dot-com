@@ -141,13 +141,13 @@ export default function WhoAmI() {
   ]
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
+    <div className="max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-6 xl:p-8 2xl:p-12 space-y-8 xl:space-y-12">
       {/* About Me Section */}
-      <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-black mb-6">Who Am I?</h2>
+      <div className="space-y-6 xl:space-y-8">
+        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold text-black mb-6">Who Am I?</h2>
         
         <div className="space-y-4 text-gray-700 leading-relaxed">
-          <p className="font-mono text-sm">
+          <p className="font-mono text-sm xl:text-base 2xl:text-lg">
             Hey, I'm Pablo AR (Antonio Ramirez) – a irrigator turned AI engineer. After years of building user-facing 
             apps, I joined the Fractal Tech accelerator to take my software engineering skills to the next level. 
             During my time at Fractal, ive built some pretty cool projects, met cooler people and worked at a few Start-ups.
@@ -157,12 +157,12 @@ export default function WhoAmI() {
       </div>
 
       {/* Skills Section */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-black mb-4">SKILLS</h3>
+      <div className="space-y-4 xl:space-y-6">
+        <h3 className="text-lg xl:text-xl 2xl:text-2xl font-bold text-black mb-4">SKILLS</h3>
         
-        <div className="grid grid-cols-4 lg:grid-cols-6 gap-4 max-w-lg lg:max-w-3xl">
+        <div className="grid grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-4 xl:gap-6 2xl:gap-8 max-w-lg lg:max-w-3xl xl:max-w-5xl 2xl:max-w-7xl">
           {skills.map((skill, index) => (
-            <div key={index} className="flex flex-col items-center space-y-2 p-3">
+            <div key={index} className="flex flex-col items-center space-y-2 p-3 xl:p-4 2xl:p-6">
               {/* Icon */}
               <div className="flex items-center justify-center">
                 {skill.icon}
@@ -170,10 +170,10 @@ export default function WhoAmI() {
               
               {/* Skill Name */}
               <div className="text-center">
-                <div className="font-medium text-black text-xs">
+                <div className="font-medium text-black text-xs xl:text-sm 2xl:text-base">
                   {skill.name.toUpperCase()}
                 </div>
-                <div className="text-xs text-gray-500">
+                <div className="text-xs xl:text-sm 2xl:text-base text-gray-500">
                   {skill.category}
                 </div>
               </div>
