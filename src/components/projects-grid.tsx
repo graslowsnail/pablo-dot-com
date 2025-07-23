@@ -19,10 +19,10 @@ interface ProjectsGridProps {
 
 export default function ProjectsGrid({ projects }: ProjectsGridProps) {
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-8">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-black mb-4">Projects</h2>
-        <p className="text-gray-600">
+    <div className="max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-6 xl:p-8 2xl:p-12 space-y-8 xl:space-y-12">
+      <div className="space-y-6 xl:space-y-8">
+        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold text-black mb-6">Projects</h2>
+        <p className="text-gray-600 text-sm xl:text-base 2xl:text-lg">
           A collection of projects I've built to solve real-world problems
         </p>
       </div>
