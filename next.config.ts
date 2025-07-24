@@ -17,6 +17,27 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: `
+              default-src 'self';
+              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live;
+              style-src 'self' 'unsafe-inline';
+              img-src 'self' data: https: blob:;
+              font-src 'self' data:;
+              connect-src 'self' https: wss:;
+              frame-src 'self' https://vercel.live;
+            `.replace(/\s{2,}/g, ' ').trim()
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
