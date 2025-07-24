@@ -17,8 +17,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
-  // Disable font optimization if it causes issues
-  optimizeFonts: false,
 };
 
 export default nextConfig;
