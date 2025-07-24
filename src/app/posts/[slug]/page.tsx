@@ -10,6 +10,7 @@ import { calculateReadingTime } from "@/lib/utils";
 import { components } from "@/components/mdx-component";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import PostNavigation from "@/components/post-navigation";
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -109,9 +110,13 @@ export default async function PostPage({ params }: PostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      
+      {/* Navigation Header */}
+      <PostNavigation />
+
       <article className="max-w-3xl mx-auto prose dark:prose-invert">
         {post.coverImage && (
-          <div className="relative aspect-video w-full mb-8 rounded-lg overflow-hidden">
+          <div className="relative aspect-video w-full mb-8 overflow-hidden">
             <Image
               src={post.coverImage}
               alt={post.title}

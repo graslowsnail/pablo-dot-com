@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Post } from "@/lib/notion";
 import NavigationGrid from "@/components/navigation-grid";
 import WhoAmI from "@/components/who-am-i";
@@ -17,6 +17,34 @@ interface HomeClientProps {
 
 export default function HomeClient({ posts, projects }: HomeClientProps) {
   const [activeSection, setActiveSection] = useState<SectionType>("whoami");
+
+  // Load section only if returning from a blog post
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const returnFromBlog = sessionStorage.getItem('returnFromBlog');
+      const isFromBlogReferrer = document.referrer.includes('/posts/');
+      
+      // Only use saved section if specifically returning from a blog post
+      if (returnFromBlog === 'true' || isFromBlogReferrer) {
+        const savedSection = sessionStorage.getItem('activeSection') as SectionType;
+        if (savedSection && ["whoami", "projects", "blogs", "contact"].includes(savedSection)) {
+          setActiveSection(savedSection);
+        }
+        
+        // Clear the flag after using it
+        sessionStorage.removeItem('returnFromBlog');
+      }
+      // For all other cases (fresh loads, refreshes, new tabs), stay with default "whoami"
+    }
+  }, []);
+
+  // Save section to sessionStorage whenever it changes (for within-session navigation)
+  const handleSectionChange = (section: SectionType) => {
+    setActiveSection(section);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('activeSection', section);
+    }
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -38,7 +66,7 @@ export default function HomeClient({ posts, projects }: HomeClientProps) {
       {/* Navigation Section */}
       <NavigationGrid 
         activeSection={activeSection} 
-        onSectionChange={setActiveSection} 
+        onSectionChange={handleSectionChange} 
       />
 
       {/* Dynamic Section Content */}

@@ -7,26 +7,26 @@ export default function ContactInfo() {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@pablo.com",
-      link: "mailto:hello@pablo.com"
+      value: "pablo7ramirez7@gmail.com",
+      link: "mailto:hello@gmail.com"
     },
     {
       icon: Github,
       label: "GitHub",
       value: "@pabloramirez",
-      link: "https://github.com/pabloramirez"
+      link: "https://github.com/graslowsnail"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "Pablo Ramirez",
-      link: "https://linkedin.com/in/pabloramirez"
+      link: "https://www.linkedin.com/in/pablo-ramirez-5589b7260/"
     },
     {
       icon: FileText,
       label: "Resume",
       value: "Download PDF",
-      link: "#" // placeholder for now
+      link: "https://drive.google.com/file/d/1bP62bUECPB0nJNUGiJMQ8tf0_mI26Db8/view?usp=sharing"
     }
   ]
 
