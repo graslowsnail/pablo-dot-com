@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
       // Add more domains as needed
     ],
   },
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
+  // Disable font optimization if it causes issues
+  optimizeFonts: false,
 };
 
 export default nextConfig;
