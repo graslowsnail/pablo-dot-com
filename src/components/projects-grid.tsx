@@ -1,8 +1,6 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 
 interface Project {
@@ -28,39 +26,55 @@ export default function ProjectsGrid({ projects }: ProjectsGridProps) {
       </div>
       
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-6 2xl:gap-8">
         {projects.map((project, index) => (
-          <Card key={index} className="h-full border border-gray-300 hover:border-green-600 transition-colors duration-200">
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                {project.title}
-                <div className="flex space-x-2">
-                  <Button variant="ghost" size="sm" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4" />
-                    </a>
-                  </Button>
+          <div key={index} className="group p-4 xl:p-6 2xl:p-8 transition-all duration-200 border border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50">
+            <div className="space-y-4">
+              {/* Title and Action Buttons */}
+              <div className="flex items-start justify-between">
+                <h3 className="font-mono text-lg xl:text-xl 2xl:text-2xl text-black font-semibold">
+                  {project.title}
+                </h3>
+                <div className="flex space-x-2 ml-4">
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 hover:bg-gray-100 transition-colors"
+                  >
+                    <Github className="w-4 h-4 xl:w-5 xl:h-5 text-black" />
+                  </a>
                   {project.live && (
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={project.live} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </Button>
+                    <a 
+                      href={project.live} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="p-2 hover:bg-gray-100 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4 xl:w-5 xl:h-5 text-black" />
+                    </a>
                   )}
                 </div>
-              </CardTitle>
-              <CardDescription>{project.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
+              </div>
+              
+              {/* Description */}
+              <p className="text-gray-600 text-sm xl:text-base 2xl:text-lg leading-relaxed">
+                {project.description}
+              </p>
+              
+              {/* Tech Stack */}
               <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
-                  <Badge key={tech} variant="secondary">
+                  <span 
+                    key={tech} 
+                    className="px-2 py-1 text-xs xl:text-sm bg-gray-100 text-gray-700 border border-gray-200"
+                  >
                     {tech}
-                  </Badge>
+                  </span>
                 ))}
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </div>
