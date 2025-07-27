@@ -132,7 +132,6 @@ export default function GlobalNavigation() {
                 home
               </button>
               / {getSectionDisplayName(activeSection)}
-              <span className="animate-pulse">    █</span>
             </div>
           )}
         </div>
