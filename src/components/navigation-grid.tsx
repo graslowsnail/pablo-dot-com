@@ -10,12 +10,6 @@ interface NavigationGridProps {
 export default function NavigationGrid({ activeSection, onSectionChange }: NavigationGridProps) {
   return (
     <div className="max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-6 xl:p-8 2xl:p-12">
-      {/* Terminal Header */}
-      <div className="text-gray-500 text-sm xl:text-base mb-4 text-left font-mono">
-        ~/navigation $ cd {activeSection}
-        <span className="animate-pulse">    █</span>
-      </div>
-
       {/* Navigation Grid */}
       <div className="grid grid-cols-2 gap-8 xl:gap-12 2xl:gap-16">
         {/* About */}

@@ -43,6 +43,11 @@ export default function HomeClient({ posts, projects }: HomeClientProps) {
     setActiveSection(section);
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('activeSection', section);
+      
+      // Dispatch custom event for global navigation to listen to
+      window.dispatchEvent(new CustomEvent('sessionStorageChange', {
+        detail: { key: 'activeSection', value: section }
+      }));
     }
   };
 

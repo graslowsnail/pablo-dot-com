@@ -144,14 +144,14 @@ export default function WhoAmI() {
     <div className="max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto p-6 xl:p-8 2xl:p-12 space-y-8 xl:space-y-12">
       {/* About Me Section */}
       <div className="space-y-6 xl:space-y-8">
-        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold text-black mb-6">Who Am I?</h2>
+        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold text-black mb-6">Who Is Pablo?</h2>
         
         <div className="space-y-4 text-gray-700 leading-relaxed">
           <p className="font-mono text-sm xl:text-base 2xl:text-lg">
-            Hey, I'm Pablo AR (Antonio Ramirez) – a irrigator turned AI engineer. After years of building user-facing 
-            apps, I joined the Fractal Tech accelerator to take my software engineering skills to the next level. 
-            During my time at Fractal, ive built some pretty cool projects, met cooler people and worked at a few Start-ups.
-            Moving fast, LLM integrations, and scalable infra is the naem of the game. 
+            Hi, I'm Pablo AR (Antonio Ramirez) — a self-taught software engineer, raised in Houston and now based in Brooklyn.
+            After years of building in various fields, I joined the Fractal Tech AI accelerator to take my software engineering skills to the next level. 
+            During my time at Fractal, I've built some pretty cool projects, met even cooler people, and interned at a few startups in NYC.
+            Moving fast, LLM integrations, and scalable infra is the name of the game. 
           </p>
         </div>
       </div>

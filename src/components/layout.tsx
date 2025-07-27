@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import GlobalNavigation from "./global-navigation";
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,6 +9,9 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
+      {/* Global Navigation */}
+      <GlobalNavigation />
+      
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         {children}
       </main>
