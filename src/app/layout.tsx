@@ -3,26 +3,26 @@ import "./globals.css";
 import Layout from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-site.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://pabloar.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gesturs - The Notion Blog",
-    template: `%s | Gesturs`,
+    default: "Pablo - Personal Website",
+    template: `%s | Pablo`,
   },
-  description: "A blog built with Next.js and Notion",
+  description: "A personal website where I showcase what I've built and share my thoughts on things.",
   openGraph: {
-    title: "Gesturs - The Notion Blog",
-    description: "A blog built with Next.js and Notion",
+    title: "Pablo - Personal Website",
+    description: "A personal website where I showcase what I've built and share my thoughts on things.",
     url: siteUrl,
-    siteName: "Gesturs",
+    siteName: "Pablo",
     images: [
       {
         url: `${siteUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: "Gesturs - The Notion Blog",
+        alt: "Pablo - Personal Website",
       },
     ],
     locale: "en_US",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gesturs - The Notion Blog",
-    description: "A blog built with Next.js and Notion",
+    title: "Pablo - Personal Website",
+    description: "A personal website where I showcase what I've built and share my thoughts on things.",
     images: [`${siteUrl}/opengraph-image.png`],
   },
   robots: {
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 
