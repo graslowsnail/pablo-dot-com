@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Post } from "@/lib/notion";
 import NavigationGrid from "@/components/navigation-grid";
 import WhoAmI from "@/components/who-am-i";
@@ -17,6 +17,7 @@ interface HomeClientProps {
 
 export default function HomeClient({ posts, projects }: HomeClientProps) {
   const [activeSection, setActiveSection] = useState<SectionType>("whoami");
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Load section only if returning from a blog post
   useEffect(() => {
@@ -48,6 +49,18 @@ export default function HomeClient({ posts, projects }: HomeClientProps) {
       window.dispatchEvent(new CustomEvent('sessionStorageChange', {
         detail: { key: 'activeSection', value: section }
       }));
+
+      // Scroll to content area after a brief delay to allow content to render
+      setTimeout(() => {
+        if (contentRef.current) {
+          const elementTop = contentRef.current.offsetTop;
+          const offset = window.innerWidth <= 768 ? 60 : 80; // Less offset on mobile
+          window.scrollTo({
+            top: elementTop - offset,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
     }
   };
 
@@ -75,7 +88,7 @@ export default function HomeClient({ posts, projects }: HomeClientProps) {
       />
 
       {/* Dynamic Section Content */}
-      <div>
+      <div ref={contentRef}>
         <div 
           key={activeSection} 
           className="animate-in fade-in slide-in-from-bottom-4 duration-500 ease-out"

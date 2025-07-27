@@ -8,6 +8,21 @@ import LoadingSpinner from "./loading-spinner";
 
 type SectionType = "whoami" | "projects" | "blogs" | "contact";
 
+const getSectionDisplayName = (section: SectionType): string => {
+  switch (section) {
+    case "whoami":
+      return "about me";
+    case "projects":
+      return "projects";
+    case "blogs":
+      return "blogs";
+    case "contact":
+      return "contact";
+    default:
+      return section;
+  }
+};
+
 export default function GlobalNavigation() {
   const [isLoading, setIsLoading] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionType>("whoami");
@@ -116,7 +131,7 @@ export default function GlobalNavigation() {
               >
                 home
               </button>
-              / {activeSection}
+              / {getSectionDisplayName(activeSection)}
               <span className="animate-pulse">    █</span>
             </div>
           )}
