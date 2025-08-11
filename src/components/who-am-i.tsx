@@ -148,10 +148,10 @@ export default function WhoAmI() {
         
         <div className="space-y-4 text-gray-700 leading-relaxed">
           <p className="font-mono text-sm xl:text-base 2xl:text-lg">
-            Hi, I'm Pablo AR (Antonio Ramirez) — a self-taught software engineer, raised in Houston and now based in Brooklyn.
-            After years of building in various fields, I joined the Fractal Tech AI accelerator to take my software engineering skills to the next level. 
-            During my time at Fractal, I've built some pretty cool projects, met even cooler people, and interned at a few startups in NYC.
-            Moving fast, LLM integrations, and scalable infra is the name of the game. 
+            Hi, I'm Pablo AR (Antonio Ramirez) — Houston-raised, Brooklyn-based software engineer passionate about creating
+            software that solves real-world problems and delivers measurable impact. 
+            I thrive in fast paced environments, quickly learning new technologies and adapting to different problem sets.
+            Driven, curious, and execution-focused. 
           </p>
         </div>
       </div>
