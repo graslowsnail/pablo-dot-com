@@ -64,7 +64,7 @@ export default function Component() {
         setGlitchChars({})
       }, 200)
       
-    }, 1000 + Math.random() * 2000) // Random interval between 1-3 seconds
+    }, 300 + Math.random() * 900) // Random interval between 1-3 seconds
     
     return () => clearInterval(glitchInterval)
   }, [matrixChars])
@@ -96,7 +96,7 @@ export default function Component() {
         setTextGlitchChars({})
       }, 150)
       
-    }, 2000 + Math.random() * 4000) // Random interval between 2-6 seconds
+    }, 2000 + Math.random() * 900) // Random interval between 2-6 seconds
     
     return () => clearInterval(textGlitchInterval)
   }, [isTypewriterComplete, textMatrixChars, fullText])

@@ -19,14 +19,16 @@ export default function HomeClient({ posts, projects }: HomeClientProps) {
   const [activeSection, setActiveSection] = useState<SectionType>("whoami");
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Load section only if returning from a blog post
+  // Load section only if returning from a blog post or resume page
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const returnFromBlog = sessionStorage.getItem('returnFromBlog');
+      const returnFromResume = sessionStorage.getItem('returnFromResume');
       const isFromBlogReferrer = document.referrer.includes('/posts/');
+      const isFromResumeReferrer = document.referrer.includes('/resume');
       
-      // Only use saved section if specifically returning from a blog post
-      if (returnFromBlog === 'true' || isFromBlogReferrer) {
+      // Only use saved section if specifically returning from a blog post or resume
+      if (returnFromBlog === 'true' || isFromBlogReferrer || returnFromResume === 'true' || isFromResumeReferrer) {
         const savedSection = sessionStorage.getItem('activeSection') as SectionType;
         if (savedSection && ["whoami", "projects", "blogs", "contact"].includes(savedSection)) {
           setActiveSection(savedSection);
@@ -34,6 +36,7 @@ export default function HomeClient({ posts, projects }: HomeClientProps) {
         
         // Clear the flag after using it
         sessionStorage.removeItem('returnFromBlog');
+        sessionStorage.removeItem('returnFromResume');
       }
       // For all other cases (fresh loads, refreshes, new tabs), stay with default "whoami"
     }

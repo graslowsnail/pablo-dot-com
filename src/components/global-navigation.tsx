@@ -28,8 +28,9 @@ export default function GlobalNavigation() {
   const [activeSection, setActiveSection] = useState<SectionType>("whoami");
   const pathname = usePathname();
   
-  // Determine if we're on a blog post page
+  // Determine if we're on a blog post page or resume page
   const isBlogPost = pathname.startsWith('/posts/');
+  const isResumePage = pathname.startsWith('/resume');
   
   // Reset loading state when pathname changes (navigation complete)
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function GlobalNavigation() {
   // Get the current section based on pathname or session storage
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      if (isBlogPost) {
+      if (isBlogPost || isResumePage) {
         // On blog post pages, we don't show the terminal header
         return;
       }
@@ -52,12 +53,12 @@ export default function GlobalNavigation() {
         setActiveSection("whoami");
       }
     }
-  }, [pathname, isBlogPost]);
+  }, [pathname, isBlogPost, isResumePage]);
   
   // Listen for session storage changes to update the active section
   useEffect(() => {
     const handleStorageChange = () => {
-      if (typeof window !== 'undefined' && !isBlogPost) {
+      if (typeof window !== 'undefined' && !isBlogPost && !isResumePage) {
         const savedSection = sessionStorage.getItem('activeSection') as SectionType;
         if (savedSection && ["whoami", "projects", "blogs", "contact"].includes(savedSection)) {
           setActiveSection(savedSection);
@@ -84,20 +85,26 @@ export default function GlobalNavigation() {
       window.removeEventListener('storage', handleStorageChange);
       window.removeEventListener('sessionStorageChange', handleCustomStorageChange as EventListener);
     };
-  }, [isBlogPost]);
+  }, [isBlogPost, isResumePage]);
   
   const handleBackClick = () => {
     if (typeof window !== 'undefined') {
-      // Set flags for returning from blog post
-      sessionStorage.setItem('returnFromBlog', 'true');
-      sessionStorage.setItem('activeSection', 'blogs');
-      
-      // Store the current blog slug to focus on it later
-      const slug = pathname.split('/').pop();
-      if (slug) {
-        sessionStorage.setItem('focusedBlog', slug);
+      if (isResumePage) {
+        // Set flags for returning from resume page
+        sessionStorage.setItem('returnFromResume', 'true');
+        sessionStorage.setItem('activeSection', 'contact');
+      } else {
+        // Set flags for returning from blog post
+        sessionStorage.setItem('returnFromBlog', 'true');
+        sessionStorage.setItem('activeSection', 'blogs');
+        
+        // Store the current blog slug to focus on it later
+        const slug = pathname.split('/').pop();
+        if (slug) {
+          sessionStorage.setItem('focusedBlog', slug);
+        }
       }
-      
+
       // Only show loading spinner briefly during navigation
       setIsLoading(true);
     }
@@ -113,7 +120,7 @@ export default function GlobalNavigation() {
       {isLoading && <LoadingSpinner />}
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-6 xl:px-8 2xl:px-12 py-4 xl:py-6 2xl:py-8">
-          {isBlogPost ? (
+          {isBlogPost || isResumePage ? (
             <Link 
               href="/"
               onClick={handleBackClick}
