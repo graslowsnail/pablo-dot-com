@@ -2,6 +2,8 @@ import { fetchPublishedPosts, getPost, Post } from "@/lib/notion";
 import AsciiPortfolio from "@/components/ascii-portfolio";
 import HomeClient from "@/components/home-client";
 
+export const revalidate = 60;
+
 const projects = [
   {
     title: "Photo Portfolio",
@@ -38,7 +40,7 @@ async function getPosts(): Promise<Post[]> {
   const allPosts = await Promise.all(
     posts.results.map((post) => getPost(post.id))
   );
-  return allPosts.filter((post): post is Post => post !== null).slice(0, 3); // Only show 3 latest posts
+  return allPosts.filter((post): post is Post => post !== null);
 }
 
 export default async function Home() {
