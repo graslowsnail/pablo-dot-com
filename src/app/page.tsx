@@ -6,18 +6,18 @@ export const revalidate = 60;
 
 const projects = [
   {
+    title: "Open Metropolitan",
+    description: "Explore The Met's vast collection through an infinite scrolling gallery. Discover 340,000+ artworks from around the world.",
+    tech: ["JavaScript", "API", "Data Processing"],
+    github: "https://github.com/graslowsnail/met-galaxy",
+    live: "https://openmetropolitan.com"
+  },
+  {
     title: "Photo Portfolio",
     description: "Personal photography showcase and portfolio website where users can buy physical prints of photos I have taken around the world",
     tech: ["JavaScript", "Portfolio", "Photography"],
     github: "https://github.com/graslowsnail/photo-port",
     live: "https://graslowsnail.com"
-  },
-  {
-    title: "Enhanced MET Museum API",
-    description: "Scraped 480k+ MET objects from the website to extract direct image URLs and richer artwork metadata missing from the official API. Stitched and cleaned the data into an improved dump, and built a backend with vector embeddings for semantic search.",
-    tech: ["JavaScript", "API", "Data Processing"],
-    github: "https://github.com/graslowsnail/metmuseum-api-dump-enhanced",
-    live: null
   },
   {
     title: "X-Rain Inventory Tracker",
