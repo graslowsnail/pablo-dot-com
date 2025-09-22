@@ -41,7 +41,7 @@ export default function NavigationGrid({ activeSection, onSectionChange }: Navig
             <span className="text-black text-md xl:text-lg font-mono">$ </span>
             <span className="font-mono text-md xl:text-lg 2xl:text-xl text-black">Get In Touch</span>
           </div>
-          <div className="text-gray-500 text-md xl:text-lg 2xl:text-xl mt-1">Don't Be Shy</div>
+          <div className="text-gray-500 text-md xl:text-lg 2xl:text-xl mt-1">Let's Connect</div>
         </button>
 
         {/* Projects */}
